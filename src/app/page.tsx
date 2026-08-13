@@ -41,6 +41,11 @@ const projects = [
     kpis: ["Booking status", "Ride volume", "Customer ratings"],
     findings: "Add verified findings from the completed analysis here.",
     recommendations: "Add evidence-backed operational recommendations here.",
+    insights: [
+      { finding: "Cancellation activity should be analyzed by cancellation reason, customer or driver behavior, and ride characteristics.", why: "This can help isolate operational friction and focus improvement work without assuming a cause that the underlying data has not verified.", recommendation: "Investigate the highest-impact cancellation reasons identified in the analysis before selecting an operational response." },
+      { finding: "Ride and vehicle performance should be compared across the available vehicle categories.", why: "Verified differences can inform fleet allocation, driver availability, and operational planning.", recommendation: "Optimize vehicle and driver allocation according to verified differences in demand and vehicle performance." },
+      { finding: "Ride demand and booking behavior should be evaluated across available time, customer, and ride-level dimensions.", why: "Demand patterns can help align driver availability and operational capacity with customer demand.", recommendation: "Use verified demand patterns to improve driver availability and operational planning during high-demand periods." },
+    ],
   },
   {
     number: "02",
@@ -60,6 +65,11 @@ const projects = [
     kpis: ["Revenue", "Profit", "Product performance"],
     findings: "Add verified findings from the completed analysis here.",
     recommendations: "Add evidence-backed sales, inventory, or regional recommendations here.",
+    insights: [
+      { finding: "Sales performance should be compared across products and categories to identify high- and low-performing segments.", why: "This comparison can guide inventory, marketing, and sales priorities without assuming why a segment performs differently.", recommendation: "Prioritize verified high-performing segments while investigating the reasons behind underperformance." },
+      { finding: "Revenue and profitability should be evaluated together because sales volume alone does not establish profitable growth.", why: "Comparing revenue with profit and margin supports decisions focused on the bottom line.", recommendation: "Use revenue and profitability metrics together rather than relying on sales volume alone." },
+      { finding: "Customer and market performance should be compared across the available business segments.", why: "Segment-level evidence can guide marketing, inventory, and operational resource allocation.", recommendation: "Focus resources on segments with the strongest verified contribution or growth opportunity." },
+    ],
   },
 ];
 
@@ -168,6 +178,10 @@ export default function Home() {
             <div><span>07 / Business Recommendations</span><p className="case-placeholder">{selectedProject.recommendations}</p></div>
             <div><span>08 / Dashboard / Visualizations</span><Image src={selectedProject.image} alt={`${selectedProject.title} dashboard`} width={900} height={500} /></div>
           </div>
+          <section className="case-insights" aria-labelledby="insights-title">
+            <div className="case-section-heading"><span>Interpretation layer</span><h3 id="insights-title">Key Insights</h3><p>Finding → business meaning → action. Validate each interpretation against the underlying project data before presenting it as a verified result.</p></div>
+            <div className="insight-list">{selectedProject.insights.map((insight, index) => <article className="insight-item" key={insight.finding}><div className="insight-number">{String(index + 1).padStart(2, "0")}</div><div><span>Finding</span><p>{insight.finding}</p></div><div><span>Why it matters</span><p>{insight.why}</p></div><div><span>Recommendation</span><p>{insight.recommendation}</p></div></article>)}</div>
+          </section>
           <a className="button button-dark case-github" href={selectedProject.link} target="_blank" rel="noreferrer">09 / GitHub Repository <Github size={16} /></a>
         </article>
       </div>}

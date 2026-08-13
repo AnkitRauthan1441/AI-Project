@@ -32,6 +32,7 @@ const projects = [
     className: "project-ola",
     stat: "71K+",
     statLabel: "ride records",
+    image: "/ola-project.png",
   },
   {
     number: "02",
@@ -43,6 +44,7 @@ const projects = [
     className: "project-shop",
     stat: "360°",
     statLabel: "business view",
+    image: "/ecommerce-project.png",
   },
 ];
 
@@ -116,7 +118,7 @@ export default function Home() {
         <div className="project-grid">
           {projects.map((project) => <article className={`project-card ${project.className}`} key={project.number}>
             <div className="project-top"><span className="project-number">{project.number}</span><span>{project.type}</span><ArrowUpRight size={20} /></div>
-            <div className="project-chart"><div className="chart-bars"><i /><i /><i /><i /><i /><i /><i /></div><div className="chart-line"><span /><span /><span /><span /><span /><span /><span /></div><div className="chart-axis"><b>JAN</b><b>MAR</b><b>MAY</b><b>JUL</b></div></div>
+            <div className="project-chart"><Image src={project.image} alt={`${project.title} dashboard preview`} fill sizes="(max-width: 800px) 90vw, 42vw" /></div>
             <div className="project-body"><div><h3>{project.title}</h3><p>{project.description}</p><div className="tool-list">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div></div><div className="project-stat"><strong>{project.stat}</strong><span>{project.statLabel}</span></div></div>
           </article>)}
         </div>

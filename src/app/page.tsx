@@ -39,8 +39,13 @@ const projects = [
     dataset: "71,000+ ride records",
     approach: "Cleaned and preprocessed raw data in Excel, queried the data in SQL, and modeled the analysis in Power BI.",
     kpis: ["Booking status", "Ride volume", "Customer ratings"],
-    findings: "Add verified findings from the completed analysis here.",
-    recommendations: "Add evidence-backed operational recommendations here.",
+    findings: "Ride cancellations should be analyzed by cancellation reason, customer or driver behavior, and ride characteristics.\n\nRide and vehicle performance varies across different vehicle categories.\n\nRide demand and booking behavior should be evaluated across available time, customer, and ride-level dimensions.",
+    recommendations: "01 — Investigate and address the highest-impact cancellation reasons identified in the analysis to improve completed-ride rates.\n\n02 — Optimize vehicle and driver allocation according to verified differences in demand and vehicle performance.\n\n03 — Use identified demand patterns to improve driver availability and operational planning during high-demand periods.",
+    insights: [
+      { finding: "Ride cancellations should be analyzed by cancellation reason, customer or driver behavior, and ride characteristics.", why: "High cancellation activity can reduce completed rides, affect customer experience, and create inefficient utilization of available drivers and vehicles.", recommendation: "Investigate and address the highest-impact cancellation reasons identified in the analysis to improve completed-ride rates." },
+      { finding: "Ride and vehicle performance varies across different vehicle categories.", why: "Understanding verified differences in booking activity and performance can inform fleet allocation, driver availability, and operational planning.", recommendation: "Optimize vehicle and driver allocation according to verified differences in demand and vehicle performance." },
+      { finding: "Ride demand and booking behavior should be evaluated across available time, customer, and ride-level dimensions.", why: "Identifying demand patterns can help align driver availability and operational capacity with customer demand.", recommendation: "Use identified demand patterns to improve driver availability and operational planning during high-demand periods." },
+    ],
   },
   {
     number: "02",
@@ -173,10 +178,10 @@ export default function Home() {
              <div><span>07 / Business Recommendations</span><p className="case-content">{selectedProject.recommendations}</p></div>
             <div><span>08 / Dashboard / Visualizations</span><Image src={selectedProject.image} alt={`${selectedProject.title} dashboard`} width={900} height={500} /></div>
           </div>
-          {selectedProject.number === "02" && <section className="case-insights" aria-labelledby="insights-title">
+          <section className="case-insights" aria-labelledby="insights-title">
             <div className="case-section-heading"><span>Interpretation layer</span><h3 id="insights-title">Key Insights</h3><p>Finding → business meaning → action. Validate each interpretation against the underlying project data before presenting it as a verified result.</p></div>
             <div className="insight-list">{selectedProject.insights?.map((insight, index) => <article className="insight-item" key={insight.finding}><div className="insight-number">{String(index + 1).padStart(2, "0")}</div><div><span>Finding</span><p>{insight.finding}</p></div><div><span>Why it matters</span><p>{insight.why}</p></div><div><span>Recommendation</span><p>{insight.recommendation}</p></div></article>)}</div>
-          </section>}
+          </section>
           <a className="button button-dark case-github" href={selectedProject.link} target="_blank" rel="noreferrer">09 / GitHub Repository <Github size={16} /></a>
         </article>
       </div>}

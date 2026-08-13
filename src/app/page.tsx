@@ -104,7 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ticker"><span>SQL</span><i>✦</i><span>POWER BI</span><i>✦</i><span>PYTHON</span><i>✦</i><span>ADVANCED EXCEL</span><i>✦</i><span>DATA STORYTELLING</span></section>
+      <section className="ticker" aria-label="Core analytics skills"><span>SQL</span><i>✦</i><span>POWER BI</span><i>✦</i><span>PYTHON</span><i>✦</i><span>ADVANCED EXCEL</span><i>✦</i><span>DATA STORYTELLING</span></section>
 
       <section className="numbers section-wrap" id="about">
         <div className="section-intro"><span className="section-label">/ At a glance</span><h2>The numbers behind the work.</h2></div>

@@ -38,6 +38,8 @@ nextjs-portal { display:none !important; }
 .project-card:hover .project-chart img { transform:scale(1.05); filter:saturate(1.15); }
 .project-link { display:inline-flex; align-items:center; gap:7px; margin-top:18px; font-size:10px; text-transform:uppercase; letter-spacing:.1em; font-weight:bold; border-bottom:1px solid var(--orange); padding-bottom:4px; }
 .project-link:hover { color:var(--orange); }
+.go-up { position:fixed; right:28px; bottom:28px; z-index:10; width:46px; height:46px; display:grid; place-items:center; border:1px solid rgba(226,43,50,.7); border-radius:50%; background:rgba(226,43,50,.92); color:#fff; box-shadow:0 8px 24px rgba(226,43,50,.28); transition:transform .3s ease, box-shadow .3s ease, background .3s ease; }
+.go-up:hover { transform:translateY(-6px); background:#ff4148; box-shadow:0 0 26px rgba(226,43,50,.7); }
 .skill-row { position:relative; isolation:isolate; overflow:hidden; transition:background .35s ease, transform .35s ease, padding .35s ease, border-color .35s ease; }
 .skill-row > *:not(.skill-hover-orb) { position:relative; z-index:1; }
 .skill-hover-orb { position:absolute; z-index:0; width:190px; height:190px; left:38%; top:50%; border-radius:50%; background:radial-gradient(circle, rgba(226,43,50,.22), rgba(226,43,50,.05) 42%, transparent 70%); transform:translate(-50%,-50%) scale(.35); opacity:0; filter:blur(5px); transition:transform .55s ease, opacity .45s ease; pointer-events:none; }

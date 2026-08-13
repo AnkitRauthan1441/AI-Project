@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import {
   ArrowDownRight,
+  ArrowUp,
   ArrowUpRight,
   BarChart3,
   Check,
@@ -137,6 +138,7 @@ export default function Home() {
       <section className="contact dark-section" id="contact"><div className="section-wrap contact-inner"><span className="section-label light">/ Start a conversation</span><h2>Have a question<br />worth <em>answering?</em></h2><p>Whether you&apos;re looking for an analyst, want to talk dashboards, or just have a good data problem — I&apos;d love to hear from you.</p><a className="button button-lime" href="mailto:ankitrth81945@gmail.com">Get in touch <ArrowUpRight size={17} /></a><div className="contact-links"><a href="mailto:ankitrth81945@gmail.com"><Mail size={17} /> ankitrth81945@gmail.com</a><a href="tel:+919634136551"><Phone size={17} /> +91 96341 36551</a><a href="https://linkedin.com/in/ankit-rauthan-1815a5415" target="_blank" rel="noreferrer"><Linkedin size={17} /> LinkedIn</a><a href="https://github.com/AnkitRauthan1441" target="_blank" rel="noreferrer"><Github size={17} /> GitHub</a></div></div></section>
 
       <footer className="footer section-wrap"><span>© 2026 Ankit Rauthan</span><span>Data Analyst · SQL · Power BI · Python</span><a href="#top">Back to top ↑</a></footer>
+      <a className="go-up" href="#top" aria-label="Back to top"><ArrowUp size={18} /></a>
     </main>
   );
 }

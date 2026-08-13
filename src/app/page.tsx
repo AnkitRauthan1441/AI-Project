@@ -58,8 +58,8 @@ const projects = [
     dataset: "Dataset size not specified",
     approach: "Prepared the data in Excel and Power Query, then built an interactive Power BI dashboard with drill-through reporting.",
     kpis: ["Revenue", "Profit", "Product performance"],
-    findings: "Add verified findings from the completed analysis here.",
-    recommendations: "Add evidence-backed sales, inventory, or regional recommendations here.",
+    findings: "Product and category performance varies across the business, with some segments contributing more strongly to overall sales than others.\n\nRevenue performance should be evaluated alongside profit because strong sales volume does not necessarily translate into strong profitability.\n\nCustomer and category-level performance provides opportunities to identify where the business is performing strongly and where additional attention may be required.",
+    recommendations: "01 — Prioritize high-performing products and categories while investigating the causes of underperforming segments to improve the overall product mix.\n\n02 — Monitor revenue together with profit and profitability metrics so business decisions focus on profitable growth rather than sales volume alone.\n\n03 — Use customer and category performance analysis to focus marketing, inventory, and operational resources on segments with the strongest business contribution and clearest opportunity for improvement.",
     insights: [
       { finding: "Sales performance should be compared across products and categories to identify high- and low-performing segments.", why: "This comparison can guide inventory, marketing, and sales priorities without assuming why a segment performs differently.", recommendation: "Prioritize verified high-performing segments while investigating the reasons behind underperformance." },
       { finding: "Revenue and profitability should be evaluated together because sales volume alone does not establish profitable growth.", why: "Comparing revenue with profit and margin supports decisions focused on the bottom line.", recommendation: "Use revenue and profitability metrics together rather than relying on sales volume alone." },
@@ -169,8 +169,8 @@ export default function Home() {
             <div><span>03 / Analytical Approach</span><p>{selectedProject.approach}</p></div>
             <div><span>04 / Tools Used</span><p>{selectedProject.tools.join(" · ")}</p></div>
             <div><span>05 / Key KPIs</span><p>{selectedProject.kpis.join(" · ")}</p></div>
-            <div><span>06 / Key Findings</span><p className="case-placeholder">{selectedProject.findings}</p></div>
-            <div><span>07 / Business Recommendations</span><p className="case-placeholder">{selectedProject.recommendations}</p></div>
+             <div><span>06 / Key Findings</span><p className="case-content">{selectedProject.findings}</p></div>
+             <div><span>07 / Business Recommendations</span><p className="case-content">{selectedProject.recommendations}</p></div>
             <div><span>08 / Dashboard / Visualizations</span><Image src={selectedProject.image} alt={`${selectedProject.title} dashboard`} width={900} height={500} /></div>
           </div>
           {selectedProject.number === "02" && <section className="case-insights" aria-labelledby="insights-title">

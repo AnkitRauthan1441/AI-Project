@@ -35,6 +35,12 @@ const projects = [
     statLabel: "ride records",
     image: "/ola-project.png",
     link: "https://github.com/AnkitRauthan1441/ola-performance-project-sql-excel-powerbi",
+    problem: "Understand ride performance, customer experience, and cancellation patterns to identify operational areas requiring attention.",
+    dataset: "71,000+ ride records",
+    approach: "Cleaned and preprocessed raw data in Excel, queried the data in SQL, and modeled the analysis in Power BI.",
+    kpis: ["Booking status", "Ride volume", "Customer ratings"],
+    findings: "Add verified findings from the completed analysis here.",
+    recommendations: "Add evidence-backed operational recommendations here.",
   },
   {
     number: "02",
@@ -48,6 +54,12 @@ const projects = [
     statLabel: "business view",
     image: "/ecommerce-project.png",
     link: "https://github.com/AnkitRauthan1441/E-Commerce-Performance-Dashboard-Excel-Power-Bi",
+    problem: "Give stakeholders one view of revenue, profitability, customer behavior, and product performance for better sales and inventory decisions.",
+    dataset: "Dataset size not specified",
+    approach: "Prepared the data in Excel and Power Query, then built an interactive Power BI dashboard with drill-through reporting.",
+    kpis: ["Revenue", "Profit", "Product performance"],
+    findings: "Add verified findings from the completed analysis here.",
+    recommendations: "Add evidence-backed sales, inventory, or regional recommendations here.",
   },
 ];
 
@@ -60,6 +72,7 @@ const skills = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -134,10 +147,30 @@ export default function Home() {
           {projects.map((project) => <article className={`project-card ${project.className}`} key={project.number}>
             <a className="project-top" href={project.link} target="_blank" rel="noreferrer"><span className="project-number">{project.number}</span><span>{project.type}</span><ArrowUpRight size={20} /></a>
             <div className="project-chart"><Image src={project.image} alt={`${project.title} dashboard preview`} fill sizes="(max-width: 800px) 90vw, 42vw" /></div>
-            <div className="project-body"><div><h3>{project.title}</h3><p>{project.description}</p><div className="tool-list">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div><a className="project-link" href={project.link} target="_blank" rel="noreferrer">View repository <Github size={14} /></a></div><div className="project-stat"><strong>{project.stat}</strong><span>{project.statLabel}</span></div></div>
+            <div className="project-body"><div><h3>{project.title}</h3><p>{project.problem}</p><div className="case-meta"><span><b>Dataset</b>{project.dataset}</span><span><b>KPIs</b>{project.kpis.join(" · ")}</span></div><div className="tool-list">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div><button className="project-link" onClick={() => setSelectedProject(project)}>View Case Study <ChevronRight size={14} /></button></div><div className="project-stat"><strong>{project.stat}</strong><span>{project.statLabel}</span></div></div>
           </article>)}
         </div>
       </section>
+
+      {selectedProject && <div className="case-study-backdrop" role="presentation" onClick={() => setSelectedProject(null)}>
+        <article className="case-study-modal" role="dialog" aria-modal="true" aria-labelledby="case-study-title" onClick={(event) => event.stopPropagation()}>
+          <button className="case-study-close" onClick={() => setSelectedProject(null)} aria-label="Close case study"><X size={20} /></button>
+          <div className="case-study-kicker">{selectedProject.number} / Data analyst case study</div>
+          <h2 id="case-study-title">{selectedProject.title}</h2>
+          <p className="case-study-intro">{selectedProject.description}</p>
+          <div className="case-study-sections">
+            <div><span>01 / Business Problem</span><p>{selectedProject.problem}</p></div>
+            <div><span>02 / Dataset</span><p>{selectedProject.dataset}</p></div>
+            <div><span>03 / Analytical Approach</span><p>{selectedProject.approach}</p></div>
+            <div><span>04 / Tools Used</span><p>{selectedProject.tools.join(" · ")}</p></div>
+            <div><span>05 / Key KPIs</span><p>{selectedProject.kpis.join(" · ")}</p></div>
+            <div><span>06 / Key Findings</span><p className="case-placeholder">{selectedProject.findings}</p></div>
+            <div><span>07 / Business Recommendations</span><p className="case-placeholder">{selectedProject.recommendations}</p></div>
+            <div><span>08 / Dashboard / Visualizations</span><Image src={selectedProject.image} alt={`${selectedProject.title} dashboard`} width={900} height={500} /></div>
+          </div>
+          <a className="button button-dark case-github" href={selectedProject.link} target="_blank" rel="noreferrer">09 / GitHub Repository <Github size={16} /></a>
+        </article>
+      </div>}
 
       <section className="experience dark-section" id="experience">
         <div className="section-wrap experience-inner"><div className="experience-title"><span className="section-label light">/ Experience</span><h2>Learning by<br /><em>doing.</em></h2><p>Real-world exposure, practical case studies, and a habit of asking one more question of the data.</p></div><div className="timeline"><div className="timeline-item current"><span className="timeline-date">DEC 2025 — JUL 2026</span><div><h3>Data Analyst Intern</h3><h4>GRAS Education & Training Services · Noida</h4><p>Supported real-time reporting and data validation workflows for GRAStech.in. Cleaned multi-source datasets, tracked KPIs, surfaced trends, and built structured reports to support stakeholder decisions.</p><div className="timeline-tags"><span>Reporting</span><span>Data quality</span><span>KPI analysis</span></div></div></div><div className="timeline-item"><span className="timeline-date">AUG 2018 — SEP 2021</span><div><h3>Bachelor of Commerce</h3><h4>Hemvati Nandan Bahuguna Garhwal University</h4><p>A business foundation that keeps the commercial question at the center of every analysis.</p></div></div></div></div>

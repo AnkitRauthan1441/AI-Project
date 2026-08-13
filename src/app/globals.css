@@ -46,5 +46,6 @@ nextjs-portal { display:none !important; }
 .tool-list span,.timeline-tags span { background:#333; color:#ddd; }
 .credential-box { background:#202020; }
 .credential-note { background:#e22b32; color:#fff; }
-.dark-section { background:#0a0a0a; }
+.dark-section { background:#0a0a0a; color:#f3f1ed; }
+.experience-title h2, .contact h2 { color:#f3f1ed; }
 .contact-links { border-color:#383838; }

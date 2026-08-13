@@ -33,6 +33,7 @@ const projects = [
     stat: "71K+",
     statLabel: "ride records",
     image: "/ola-project.png",
+    link: "https://github.com/AnkitRauthan1441/ola-performance-project-sql-excel-powerbi",
   },
   {
     number: "02",
@@ -45,6 +46,7 @@ const projects = [
     stat: "360°",
     statLabel: "business view",
     image: "/ecommerce-project.png",
+    link: "https://github.com/AnkitRauthan1441/E-Commerce-Performance-Dashboard-Excel-Power-Bi",
   },
 ];
 
@@ -117,9 +119,9 @@ export default function Home() {
         <div className="section-heading"><div><span className="section-label">/ Selected work</span><h2>Analysis that moves<br /><em>business forward.</em></h2></div><p>From raw rows to readable decisions. Here are two projects where I followed the data all the way to the insight.</p></div>
         <div className="project-grid">
           {projects.map((project) => <article className={`project-card ${project.className}`} key={project.number}>
-            <div className="project-top"><span className="project-number">{project.number}</span><span>{project.type}</span><ArrowUpRight size={20} /></div>
+            <a className="project-top" href={project.link} target="_blank" rel="noreferrer"><span className="project-number">{project.number}</span><span>{project.type}</span><ArrowUpRight size={20} /></a>
             <div className="project-chart"><Image src={project.image} alt={`${project.title} dashboard preview`} fill sizes="(max-width: 800px) 90vw, 42vw" /></div>
-            <div className="project-body"><div><h3>{project.title}</h3><p>{project.description}</p><div className="tool-list">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div></div><div className="project-stat"><strong>{project.stat}</strong><span>{project.statLabel}</span></div></div>
+            <div className="project-body"><div><h3>{project.title}</h3><p>{project.description}</p><div className="tool-list">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div><a className="project-link" href={project.link} target="_blank" rel="noreferrer">View repository <Github size={14} /></a></div><div className="project-stat"><strong>{project.stat}</strong><span>{project.statLabel}</span></div></div>
           </article>)}
         </div>
       </section>

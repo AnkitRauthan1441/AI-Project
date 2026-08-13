@@ -1,65 +1,138 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  BarChart3,
+  Check,
+  ChevronRight,
+  Database,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  Phone,
+  X,
+} from "lucide-react";
+
+const navItems = ["Work", "Experience", "Toolkit", "About"];
+
+const projects = [
+  {
+    number: "01",
+    type: "Operations intelligence",
+    title: "OLA ride performance",
+    description:
+      "A 71,000+ record analysis translating booking, payment, ratings, revenue, and cancellation data into a clearer view of customer experience and operational bottlenecks.",
+    tools: ["SQL", "Excel", "Power BI"],
+    className: "project-ola",
+    stat: "71K+",
+    statLabel: "ride records",
+  },
+  {
+    number: "02",
+    type: "Commercial analytics",
+    title: "E-commerce profitability",
+    description:
+      "A unified KPI dashboard for revenue, margin, customers, products, and regional performance — built to make recurring decisions faster and more confident.",
+    tools: ["Power BI", "Excel", "Power Query"],
+    className: "project-shop",
+    stat: "360°",
+    statLabel: "business view",
+  },
+];
+
+const skills = [
+  ["01", "Query & code", "SQL / T-SQL", "MySQL · PostgreSQL · Python · Pandas · NumPy"],
+  ["02", "Visualize & model", "Power BI", "DAX · Data modeling · Power Query · Dashboard design"],
+  ["03", "Clean & transform", "Data preparation", "ETL · Validation · EDA · Wrangling · Statistical analysis"],
+  ["04", "Report & automate", "Advanced Excel", "Pivot tables · XLOOKUP · Dynamic arrays · KPI reporting"],
+];
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      <nav className="nav-shell">
+        <a className="brand" href="#top" onClick={closeMenu}>
+          <span className="brand-mark">AR</span>
+          <span>Ankit Rauthan</span>
+        </a>
+        <div className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
+          {navItems.map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`} onClick={closeMenu}>
+              {item}
+            </a>
+          ))}
+          <a className="nav-contact" href="#contact" onClick={closeMenu}>Let&apos;s talk <ArrowUpRight size={15} /></a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </nav>
+
+      <section className="hero" id="top">
+        <div className="hero-copy">
+          <div className="eyebrow"><span className="status-dot" /> Available for opportunities · Dehradun, India</div>
+          <h1>I turn messy data into <em>clear direction.</em></h1>
+          <p className="hero-lede">Data analyst focused on finding the signal inside the noise — then building the dashboards, reports, and stories that help people act on it.</p>
+          <div className="hero-actions">
+            <a className="button button-dark" href="#work">Explore my work <ArrowDownRight size={17} /></a>
+            <a className="text-link" href="mailto:ankitrth81945@gmail.com">ankitrth81945@gmail.com <ArrowUpRight size={15} /></a>
+          </div>
         </div>
-      </main>
-    </div>
+        <div className="hero-visual">
+          <div className="hero-grid" />
+          <div className="orbit orbit-one" /><div className="orbit orbit-two" />
+          <div className="profile-frame">
+            <Image src="/ankit-rauthan.png" alt="Portrait of Ankit Rauthan" fill priority sizes="(max-width: 800px) 80vw, 38vw" />
+          </div>
+          <div className="floating-card floating-top"><span className="mini-label">CURRENT FOCUS</span><strong>Business intelligence</strong><span className="card-arrow"><ArrowUpRight size={14} /></span></div>
+          <div className="floating-card floating-bottom"><span className="mini-label">ANALYTICS STACK</span><div className="stack-icons"><span>SQL</span><span>BI</span><span>PY</span></div></div>
+          <div className="hero-index">01 <span>/</span> 04</div>
+        </div>
+      </section>
+
+      <section className="ticker"><span>SQL</span><i>✦</i><span>POWER BI</span><i>✦</i><span>PYTHON</span><i>✦</i><span>ADVANCED EXCEL</span><i>✦</i><span>DATA STORYTELLING</span></section>
+
+      <section className="numbers section-wrap" id="about">
+        <div className="section-intro"><span className="section-label">/ At a glance</span><h2>The numbers behind the work.</h2></div>
+        <div className="number-grid">
+          <div className="number-item"><strong>71K<sup>+</sup></strong><span>Records analyzed<br />in one project</span></div>
+          <div className="number-item"><strong>08</strong><span>Months of hands-on<br />analytics internship</span></div>
+          <div className="number-item"><strong>04</strong><span>Core tools in my<br />everyday toolkit</span></div>
+        </div>
+      </section>
+
+      <section className="work section-wrap" id="work">
+        <div className="section-heading"><div><span className="section-label">/ Selected work</span><h2>Analysis that moves<br /><em>business forward.</em></h2></div><p>From raw rows to readable decisions. Here are two projects where I followed the data all the way to the insight.</p></div>
+        <div className="project-grid">
+          {projects.map((project) => <article className={`project-card ${project.className}`} key={project.number}>
+            <div className="project-top"><span className="project-number">{project.number}</span><span>{project.type}</span><ArrowUpRight size={20} /></div>
+            <div className="project-chart"><div className="chart-bars"><i /><i /><i /><i /><i /><i /><i /></div><div className="chart-line"><span /><span /><span /><span /><span /><span /><span /></div><div className="chart-axis"><b>JAN</b><b>MAR</b><b>MAY</b><b>JUL</b></div></div>
+            <div className="project-body"><div><h3>{project.title}</h3><p>{project.description}</p><div className="tool-list">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div></div><div className="project-stat"><strong>{project.stat}</strong><span>{project.statLabel}</span></div></div>
+          </article>)}
+        </div>
+      </section>
+
+      <section className="experience dark-section" id="experience">
+        <div className="section-wrap experience-inner"><div className="experience-title"><span className="section-label light">/ Experience</span><h2>Learning by<br /><em>doing.</em></h2><p>Real-world exposure, practical case studies, and a habit of asking one more question of the data.</p></div><div className="timeline"><div className="timeline-item current"><span className="timeline-date">DEC 2025 — JUL 2026</span><div><h3>Data Analyst Intern</h3><h4>GRAS Education & Training Services · Noida</h4><p>Supported real-time reporting and data validation workflows for GRAStech.in. Cleaned multi-source datasets, tracked KPIs, surfaced trends, and built structured reports to support stakeholder decisions.</p><div className="timeline-tags"><span>Reporting</span><span>Data quality</span><span>KPI analysis</span></div></div></div><div className="timeline-item"><span className="timeline-date">AUG 2018 — SEP 2021</span><div><h3>Bachelor of Commerce</h3><h4>Hemvati Nandan Bahuguna Garhwal University</h4><p>A business foundation that keeps the commercial question at the center of every analysis.</p></div></div></div></div>
+      </section>
+
+      <section className="toolkit section-wrap" id="toolkit"><div className="section-heading"><div><span className="section-label">/ The toolkit</span><h2>From question<br />to <em>quantified answer.</em></h2></div><p>My process connects technical fluency with business context — making analysis useful, not just accurate.</p></div><div className="skill-list">{skills.map((skill) => <div className="skill-row" key={skill[0]}><span className="skill-number">{skill[0]}</span><span className="skill-category">{skill[1]}</span><strong>{skill[2]}</strong><span className="skill-details">{skill[3]}</span><ChevronRight size={18} /></div>)}</div></section>
+
+      <section className="credentials section-wrap"><div className="credential-box"><span className="section-label">/ Credentials</span><h2>Curious by nature.<br /><em>Certified by practice.</em></h2><div className="cert-list"><div><Check size={17} /><span>Data Analytics Diploma</span><small>GRAStech · 2025–2026</small></div><div><Check size={17} /><span>SQL (Advanced) Certificate</span><small>Technical proficiency</small></div><div><Check size={17} /><span>Deloitte · Tata · PNC Simulations</span><small>Job simulation programs</small></div><div><Check size={17} /><span>Diploma in Office Automation</span><small>2023–2024</small></div></div></div><div className="credential-note"><Database size={29} /><span>Always learning</span><p>Exploring the space where data, business, and better questions meet.</p><div className="note-line" /></div></section>
+
+      <section className="contact dark-section" id="contact"><div className="section-wrap contact-inner"><span className="section-label light">/ Start a conversation</span><h2>Have a question<br />worth <em>answering?</em></h2><p>Whether you&apos;re looking for an analyst, want to talk dashboards, or just have a good data problem — I&apos;d love to hear from you.</p><a className="button button-lime" href="mailto:ankitrth81945@gmail.com">Get in touch <ArrowUpRight size={17} /></a><div className="contact-links"><a href="mailto:ankitrth81945@gmail.com"><Mail size={17} /> ankitrth81945@gmail.com</a><a href="tel:+919634136551"><Phone size={17} /> +91 96341 36551</a><a href="https://linkedin.com/in/ankit-rauthan-1815a5415" target="_blank" rel="noreferrer"><Linkedin size={17} /> LinkedIn</a><a href="https://github.com/AnkitRauthan1441" target="_blank" rel="noreferrer"><Github size={17} /> GitHub</a></div></div></section>
+
+      <footer className="footer section-wrap"><span>© 2026 Ankit Rauthan</span><span>Data Analyst · SQL · Power BI · Python</span><a href="#top">Back to top ↑</a></footer>
+    </main>
   );
 }

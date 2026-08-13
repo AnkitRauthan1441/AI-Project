@@ -85,13 +85,14 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <div className="eyebrow"><span className="status-dot" /> Available for opportunities · Dehradun, India</div>
-          <h1>I turn messy data into <em>clear direction.</em></h1>
-          <p className="hero-lede">Data analyst focused on finding the signal inside the noise — then building the dashboards, reports, and stories that help people act on it.</p>
+          <div className="eyebrow"><span className="status-dot" /> DATA ANALYST <b>|</b> SQL • POWER BI • ADVANCED EXCEL • PYTHON</div>
+          <h1>I turn messy data into <em>clear business decisions.</em></h1>
+          <p className="hero-lede">I analyze business data, uncover trends and performance drivers, and build dashboards and reports that turn raw data into actionable insights.</p>
           <div className="hero-actions">
-            <a className="button button-dark" href="#work">Explore my work <ArrowDownRight size={17} /></a>
-            <a className="text-link" href="mailto:ankitrth81945@gmail.com">ankitrth81945@gmail.com <ArrowUpRight size={15} /></a>
+            <a className="button button-dark" href="#work">View My Projects <ArrowDownRight size={17} /></a>
+            <a className="button button-outline" href="mailto:ankitrth81945@gmail.com?subject=Resume%20request">Download Resume <Download size={16} /></a>
           </div>
+          <div className="hero-socials"><span>Connect:</span><a href="https://linkedin.com/in/ankit-rauthan-1815a5415" target="_blank" rel="noreferrer"><Linkedin size={14} /> LinkedIn</a><a href="https://github.com/AnkitRauthan1441" target="_blank" rel="noreferrer"><Github size={14} /> GitHub</a></div>
         </div>
         <div className="hero-visual">
           <div className="hero-grid" />

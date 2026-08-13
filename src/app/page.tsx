@@ -106,6 +106,17 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="recruiter-snapshot section-wrap" aria-labelledby="snapshot-title">
+        <div className="snapshot-heading"><span className="section-label">/ Recruiter snapshot</span><h2 id="snapshot-title">The quick read.</h2><p>Focused on turning business data into measurable insights.</p></div>
+        <div className="snapshot-grid">
+          <div className="snapshot-card snapshot-primary"><span className="snapshot-index">01</span><strong>Data Analyst</strong><span>Role focus</span></div>
+          <div className="snapshot-card"><span className="snapshot-index">02</span><strong>8 Months</strong><span>Analytics internship experience</span></div>
+          <div className="snapshot-card"><span className="snapshot-index">03</span><strong>71K+</strong><span>Records analyzed</span></div>
+          <div className="snapshot-card"><span className="snapshot-index">04</span><strong>SQL · Power BI</strong><span>Advanced Excel · Python</span></div>
+          <div className="snapshot-card"><span className="snapshot-index">05</span><strong>2+</strong><span>End-to-end analytics projects</span></div>
+        </div>
+      </section>
+
       <section className="ticker" aria-label="Core analytics skills"><span>SQL</span><i>✦</i><span>POWER BI</span><i>✦</i><span>PYTHON</span><i>✦</i><span>ADVANCED EXCEL</span><i>✦</i><span>DATA STORYTELLING</span></section>
 
       <section className="numbers section-wrap" id="about">

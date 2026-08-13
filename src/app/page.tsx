@@ -73,11 +73,12 @@ const projects = [
   },
 ];
 
-const skills = [
-  ["01", "Query & code", "SQL / T-SQL", "MySQL · PostgreSQL · Python · Pandas · NumPy"],
-  ["02", "Visualize & model", "Power BI", "DAX · Data modeling · Power Query · Dashboard design"],
-  ["03", "Clean & transform", "Data preparation", "ETL · Validation · EDA · Wrangling · Statistical analysis"],
-  ["04", "Report & automate", "Advanced Excel", "Pivot tables · XLOOKUP · Dynamic arrays · KPI reporting"],
+const skills: [string, string, string[]][] = [
+  ["01", "DATA ANALYSIS", ["SQL", "Python", "Pandas", "NumPy"]],
+  ["02", "BI & DATA VISUALIZATION", ["Power BI", "DAX", "Power Query", "Data Modeling"]],
+  ["03", "ADVANCED EXCEL", ["Advanced Excel", "Pivot Tables", "XLOOKUP", "Dynamic Arrays"]],
+  ["04", "ANALYTICAL METHODS", ["EDA", "Data Cleaning", "Data Validation", "KPI Analysis", "Trend Analysis", "Root Cause Analysis"]],
+  ["05", "BUSINESS & REPORTING", ["Dashboard Development", "Reporting", "Business Intelligence", "Data Storytelling"]],
 ];
 
 export default function Home() {
@@ -190,7 +191,7 @@ export default function Home() {
         <div className="section-wrap experience-inner"><div className="experience-title"><span className="section-label light">/ Experience</span><h2>Learning by<br /><em>doing.</em></h2><p>Real-world exposure, practical case studies, and a habit of asking one more question of the data.</p></div><div className="timeline"><div className="timeline-item current"><span className="timeline-date">DEC 2025 — JUL 2026</span><div><h3>Data Analyst Intern</h3><h4>GRAS Education & Training Services · Noida</h4><p>Supported real-time reporting and data validation workflows for GRAStech.in. Cleaned multi-source datasets, tracked KPIs, surfaced trends, and built structured reports to support stakeholder decisions.</p><div className="timeline-tags"><span>Reporting</span><span>Data quality</span><span>KPI analysis</span></div></div></div><div className="timeline-item"><span className="timeline-date">AUG 2018 — SEP 2021</span><div><h3>Bachelor of Commerce</h3><h4>Hemvati Nandan Bahuguna Garhwal University</h4><p>A business foundation that keeps the commercial question at the center of every analysis.</p></div></div></div></div>
       </section>
 
-      <section className="toolkit section-wrap" id="toolkit"><div className="section-heading"><div><span className="section-label">/ The toolkit</span><h2>From question<br />to <em>quantified answer.</em></h2></div><p>My process connects technical fluency with business context — making analysis useful, not just accurate.</p></div><div className="skill-list">{skills.map((skill) => <div className="skill-row" key={skill[0]} tabIndex={0}><span className="skill-hover-orb" aria-hidden="true" /><span className="skill-number">{skill[0]}</span><span className="skill-category">{skill[1]}</span><strong>{skill[2]}</strong><span className="skill-details">{skill[3]}</span><ChevronRight size={18} /></div>)}</div></section>
+      <section className="toolkit section-wrap" id="toolkit" aria-labelledby="toolkit-title"><div className="section-heading"><div><span className="section-label">/ The toolkit</span><h2 id="toolkit-title">What I can<br /><em>do with data.</em></h2></div><p>Tools are only useful when they lead to clearer analysis, stronger reporting, and better business decisions.</p></div><div className="skill-list">{skills.map((skill) => <article className="skill-row" key={skill[0]} tabIndex={0}><span className="skill-hover-orb" aria-hidden="true" /><span className="skill-number">{skill[0]}</span><div className="skill-content"><h3>{skill[1]}</h3><div className="skill-chips">{skill[2].map((item) => <span key={item}>{item}</span>)}</div></div><ChevronRight size={18} aria-hidden="true" /></article>)}</div></section>
 
       <section className="credentials section-wrap"><div className="credential-box"><span className="section-label">/ Credentials</span><h2>Curious by nature.<br /><em>Certified by practice.</em></h2><div className="cert-list"><div><Check size={17} /><span>Data Analytics Diploma</span><small>GRAStech · 2025–2026</small></div><div><Check size={17} /><span>SQL (Advanced) Certificate</span><small>Technical proficiency</small></div><div><Check size={17} /><span>Deloitte · Tata · PNC Simulations</span><small>Job simulation programs</small></div><div><Check size={17} /><span>Diploma in Office Automation</span><small>2023–2024</small></div></div></div><div className="credential-note"><Database size={29} /><span>Always learning</span><p>Exploring the space where data, business, and better questions meet.</p><div className="note-line" /></div></section>
 

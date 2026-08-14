@@ -114,7 +114,7 @@ export default function Home() {
           <p className="hero-lede">I analyze business data, uncover trends and performance drivers, and build dashboards and reports that turn raw data into actionable insights.</p>
           <div className="hero-actions">
             <a className="button button-dark" href="#work">View My Projects <ArrowDownRight size={17} /></a>
-            <a className="button button-outline" href="mailto:ankitrth81945@gmail.com?subject=Resume%20request">Download Resume <Download size={16} /></a>
+            <a className="button button-outline" href="/ankit-rauthan-resume.pdf" download="Ankit-Rauthan-Resume.pdf">Download Resume <Download size={16} /></a>
           </div>
           <div className="hero-socials"><span>Connect:</span><a href="https://linkedin.com/in/ankit-rauthan-1815a5415" target="_blank" rel="noreferrer"><Linkedin size={14} /> LinkedIn</a><a href="https://github.com/AnkitRauthan1441" target="_blank" rel="noreferrer"><Github size={14} /> GitHub</a></div>
         </div>

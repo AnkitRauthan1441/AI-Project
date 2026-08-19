@@ -131,7 +131,7 @@ export default function Home() {
       </section>
 
       <section className="recruiter-snapshot section-wrap" aria-labelledby="snapshot-title">
-        <div className="snapshot-heading"><span className="section-label">/ Recruiter snapshot</span><h2 id="snapshot-title">The quick read.</h2><p>Focused on turning business data into measurable insights.</p></div>
+        <div className="snapshot-heading"><span className="section-label">/ About my abilities</span><h2 id="snapshot-title">The quick read.</h2><p>Focused on turning business data into measurable insights.</p></div>
         <div className="snapshot-grid">
           <div className="snapshot-card snapshot-primary"><span className="snapshot-index">01</span><strong>Data Analyst</strong><span>Role focus</span></div>
           <div className="snapshot-card"><span className="snapshot-index">02</span><strong>8 Months</strong><span>Analytics internship experience</span></div>
